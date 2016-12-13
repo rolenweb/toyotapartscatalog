@@ -18,8 +18,8 @@ class m161213_153338_create_link_table extends Migration
             'id' => $this->primaryKey(),
             'url' => $this->string(),
             'status' => $this->smallInteger(),
-            'created_at' => $this->timestamp(),//->defaultExpression('CURRENT_TIMESTAMP'),
-            'updated_at' => $this->timestamp(),//->defaultExpression('CURRENT_TIMESTAMP'),
+            'created_at' => $this->integer(),//->defaultExpression('CURRENT_TIMESTAMP'),
+            'updated_at' => $this->integer(),//->defaultExpression('CURRENT_TIMESTAMP'),
         ], $tableOptions);
 
         $this->createIndex('idx-link-url', '{{%link}}', 'url');
