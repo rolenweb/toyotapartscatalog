@@ -3,9 +3,9 @@
 use yii\db\Migration;
 
 /**
- * Handles the creation of table `link`.
+ * Handles the creation of table `parts_groups`.
  */
-class m161213_153338_create_link_table extends Migration
+class m161214_072548_create_parts_groups_table extends Migration
 {
     public function up()
     {
@@ -14,20 +14,19 @@ class m161213_153338_create_link_table extends Migration
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE=InnoDB';
         }
 
-        $this->createTable('{{%link}}', [
+        $this->createTable('{{%parts_groups}}', [
             'id' => $this->primaryKey(),
-            'url' => $this->string(),
-            'status' => $this->smallInteger(),
+            'complectation_id' => $this->integer(),
+            'type' => $this->smallInteger(),
+            'title' => $this->string(),
             'created_at' => $this->integer(),
             'updated_at' => $this->integer(),
         ], $tableOptions);
-
-        $this->createIndex('idx-link-url', '{{%link}}', 'url');
+        
     }
 
     public function down()
     {
-        $this->dropIndex('idx-link-url', '{{%link}}');
-        $this->dropTable('{{%link}}');
+        $this->dropTable('{{%parts_groups}}');
     }
 }

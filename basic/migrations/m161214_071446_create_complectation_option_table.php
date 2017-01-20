@@ -3,10 +3,13 @@
 use yii\db\Migration;
 
 /**
- * Handles the creation of table `link`.
+ * Handles the creation of table `complectation_option`.
  */
-class m161213_153338_create_link_table extends Migration
+class m161214_071446_create_complectation_option_table extends Migration
 {
+    /**
+     * @inheritdoc
+     */
     public function up()
     {
         $tableOptions = null;
@@ -14,20 +17,21 @@ class m161213_153338_create_link_table extends Migration
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE=InnoDB';
         }
 
-        $this->createTable('{{%link}}', [
+        $this->createTable('{{%complectation_option}}', [
             'id' => $this->primaryKey(),
-            'url' => $this->string(),
-            'status' => $this->smallInteger(),
+            'complectation_id' => $this->integer(),
+            'title' => $this->string(),
+            'description' => $this->string(),
             'created_at' => $this->integer(),
             'updated_at' => $this->integer(),
         ], $tableOptions);
-
-        $this->createIndex('idx-link-url', '{{%link}}', 'url');
     }
 
+    /**
+     * @inheritdoc
+     */
     public function down()
     {
-        $this->dropIndex('idx-link-url', '{{%link}}');
-        $this->dropTable('{{%link}}');
+        $this->dropTable('{{%complectation_option}}');
     }
 }
