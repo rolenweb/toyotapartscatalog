@@ -77,4 +77,14 @@ class Link extends \yii\db\ActiveRecord
         }
         return false;
     }
+
+    public function statusName()
+    {
+        if ($this->status === 1) {
+            return 'Wating';
+        }
+        if ($this->status === 2) {
+            return 'Parsed';
+        }
+    }
 }
