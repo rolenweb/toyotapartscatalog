@@ -68,4 +68,13 @@ class Link extends \yii\db\ActiveRecord
             'http://toyota-usa.epc-data.com/'
         ];
     }
+
+    public static function filterHost($url)
+    {
+        $parsUrl = parse_url($url);
+        if ($parsUrl['host'] === 'toyota-usa.epc-data.com') {
+            return true;
+        }
+        return false;
+    }
 }

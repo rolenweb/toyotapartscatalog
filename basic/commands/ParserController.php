@@ -150,15 +150,17 @@ class ParserController extends BaseCommand
     	Console::startProgress($i, $total);
     	foreach ($clear_links as $item) {
     		Console::updateProgress(++$i, $total);
-    		$new_link = new Link();
-    		$new_link->url = trim($item);
-    		$new_link->status = Link::STATUS_WATING;
-    		if ($new_link->save()) {
-    			$new++;
-    		}else{
-    			foreach ($new_link->getErrors() as $er) {
-                }
-                $saved++;
+    		if (Link::filterHost(trim($item))) {
+    			$new_link = new Link();
+	    		$new_link->url = trim($item);
+	    		$new_link->status = Link::STATUS_WATING;
+	    		if ($new_link->save()) {
+	    			$new++;
+	    		}else{
+	    			foreach ($new_link->getErrors() as $er) {
+	                }
+	                $saved++;
+	    		}
     		}
     	}
     	Console::endProgress();
