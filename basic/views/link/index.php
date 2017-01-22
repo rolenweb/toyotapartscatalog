@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'created_at',
                 'label' => 'Created',
                 'content'=>function($data){
-                    return date("d/m/Y",$data->created_at);
+                    return date("d/m/Y H:i:s",$data->created_at);
                 }
                 
             ],
@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'updated_at',
                 'label' => 'Updated',
                 'content'=>function($data){
-                    return date("d/m/Y",$data->updated_at);
+                    return date("d/m/Y H:i:s",$data->updated_at);
                 }
                 
             ],
