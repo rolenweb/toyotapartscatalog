@@ -68,4 +68,9 @@ class Parts extends \yii\db\ActiveRecord
             'updated_at' => 'Updated At',
         ];
     }
+
+    public function getGroup()
+    {
+        return $this->hasOne(PartsGroups::className(), ['id' => 'parts_groups_id']);
+    }
 }

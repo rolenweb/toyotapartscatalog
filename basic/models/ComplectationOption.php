@@ -56,4 +56,9 @@ class ComplectationOption extends \yii\db\ActiveRecord
             'updated_at' => 'Updated At',
         ];
     }
+
+    public function getComplectation()
+    {
+        return $this->hasOne(Complectation::className(), ['id' => 'complectation_id']);
+    }
 }

@@ -71,4 +71,19 @@ class Complectation extends \yii\db\ActiveRecord
             'updated_at' => 'Updated At',
         ];
     }
+
+    public function getFrame()
+    {
+        return $this->hasOne(Frame::className(), ['id' => 'frame_id']);
+    }
+
+    public function getOptions()
+    {
+        return $this->hasMany(ComplectationOption::className(), ['complectation_id' => 'id'])->inverseOf('complectation');
+    }
+
+    public function getPartGroups()
+    {
+        return $this->hasMany(PartsGroups::className(), ['complectation_id' => 'id'])->inverseOf('complectation');
+    }
 }

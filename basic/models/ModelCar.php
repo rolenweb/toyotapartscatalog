@@ -5,24 +5,22 @@ namespace app\models;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 /**
- * This is the model class for table "frame".
+ * This is the model class for table "model".
  *
  * @property integer $id
- * @property integer $model_id
  * @property string $title
  * @property integer $created_at
  * @property integer $updated_at
  */
-class Frame extends \yii\db\ActiveRecord
+class ModelCar extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'frame';
+        return 'model';
     }
-
     public function behaviors()
     {
         return [
@@ -36,7 +34,7 @@ class Frame extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['model_id', 'created_at', 'updated_at'], 'integer'],
+            [['created_at', 'updated_at'], 'integer'],
             [['title'], 'string', 'max' => 255],
             [['title'], 'unique'],
         ];
@@ -49,20 +47,14 @@ class Frame extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'model_id' => 'Model ID',
             'title' => 'Title',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];
     }
 
-    public function getModelCar()
+    public function getFrames()
     {
-        return $this->hasOne(ModelCar::className(), ['id' => 'model_id']);
-    }
-
-    public function getComplectation()
-    {
-        return $this->hasMany(Complectation::className(), ['frame_id' => 'id'])->inverseOf('frame');
+        return $this->hasMany(Frame::className(), ['model_id' => 'id'])->inverseOf('modelCar');
     }
 }

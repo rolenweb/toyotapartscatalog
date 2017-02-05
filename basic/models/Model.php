@@ -12,7 +12,7 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $created_at
  * @property integer $updated_at
  */
-class Model extends \yii\db\ActiveRecord
+class ModelCar extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc

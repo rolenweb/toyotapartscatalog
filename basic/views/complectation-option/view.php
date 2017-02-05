@@ -4,13 +4,13 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Model */
+/* @var $model app\models\ComplectationOption */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Models', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Complectation Options', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="model-view">
+<div class="complectation-option-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -29,9 +29,22 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
+            
+            [
+                'label' => 'Complectation',
+                'value' => (empty($model->complectation) === false) ? $model->complectation->complectation : 'No set',
+            ],
             'title',
-            'created_at',
-            'updated_at',
+            'description',
+            
+            [
+                'label' => 'Created',
+                'value' => date("d/m/Y",$model->created_at),
+            ],
+            [
+                'label' => 'Updated',
+                'value' => date("d/m/Y",$model->updated_at),
+            ],
         ],
     ]) ?>
 

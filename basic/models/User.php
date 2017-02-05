@@ -13,7 +13,7 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
     private static $users = [
         '100' => [
             'id' => '100',
-            'username' => 'rolenweb',
+            'username' => 'tacomadmin',
             'password' => 'gfhjkm21',
             'authKey' => 'test100key',
             'accessToken' => '100-token',
@@ -94,5 +94,15 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
     public function validatePassword($password)
     {
         return $this->password === $password;
+    }
+
+    public function accessPage($ip)
+    {
+        return in_array($ip,$this->allowIps());
+    }
+
+    public function allowIps()
+    {
+        return ['127.0.0.1'];
     }
 }

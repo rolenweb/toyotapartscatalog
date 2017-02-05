@@ -40,8 +40,15 @@ AppAsset::register($this);
             [
                 'label' => 'Parser',
                 'items' => [
+                    ['label' => 'Catalog', 'url' => ['/catalog/index'],'visible' => !Yii::$app->user->isGuest],
                     ['label' => 'Process', 'url' => ['/parser/index'],'visible' => !Yii::$app->user->isGuest],
                     ['label' => 'Links', 'url' => ['/link/index'],'visible' => !Yii::$app->user->isGuest],
+                    ['label' => 'Model', 'url' => ['/model-car/index'],'visible' => !Yii::$app->user->isGuest],
+                    ['label' => 'Frame', 'url' => ['/frame/index'],'visible' => !Yii::$app->user->isGuest],
+                    ['label' => 'Complectation', 'url' => ['/complectation/index'],'visible' => !Yii::$app->user->isGuest],
+                    ['label' => 'Complectation Options', 'url' => ['/complectation-option/index'],'visible' => !Yii::$app->user->isGuest],
+                    ['label' => 'Groups of parts', 'url' => ['/parts-groups/index'],'visible' => !Yii::$app->user->isGuest],
+                    ['label' => 'Parts', 'url' => ['/parts/index'],'visible' => !Yii::$app->user->isGuest],
 
 
                 ]

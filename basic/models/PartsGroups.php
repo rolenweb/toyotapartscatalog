@@ -61,4 +61,58 @@ class PartsGroups extends \yii\db\ActiveRecord
             'updated_at' => 'Updated At',
         ];
     }
+
+    public function getComplectation()
+    {
+        return $this->hasOne(Complectation::className(), ['id' => 'complectation_id']);
+    }
+
+    public function typeName()
+    {
+        switch ($this->type) {
+            case 1:
+                return 'Engine, fuel system and tools';
+                break;
+            case 2:
+                return 'Transmission and chassis';
+                break;
+            case 3:
+                return 'Body and interior';
+                break;
+            case 4:
+                return 'Electrics';
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+    }
+
+    public function getParts()
+    {
+        return $this->hasMany(Parts::className(), ['parts_groups_id' => 'id']);
+    }
+
+    public static function nameTypeByType($type)
+    {
+        switch ($type) {
+            case 1:
+                return 'Engine, fuel system and tools';
+                break;
+            case 2:
+                return 'Transmission and chassis';
+                break;
+            case 3:
+                return 'Body and interior';
+                break;
+            case 4:
+                return 'Electrics';
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+    }
 }
