@@ -10,7 +10,7 @@ namespace app\commands;
 use yii\console\Controller;
 use yii\helpers\Console;
 use app\models\Link;
-use app\models\Model;
+use app\models\ModelCar;
 use app\models\Frame;
 use app\models\Complectation;
 use app\models\ComplectationOption;
@@ -170,7 +170,7 @@ class ParserController extends BaseCommand
 
     public function saveModel($breadcrumbs)
     {
-		$new_model = new Model();
+		$new_model = new ModelCar();
 		$new_model->title = $breadcrumbs['title'];
 		if ($new_model->save()) {
 			$this->success($breadcrumbs['title'].' model is saved');
