@@ -45,7 +45,7 @@ class Parts extends \yii\db\ActiveRecord
             [['parts_groups_id', 'created_at', 'updated_at'], 'integer'],
             [['applicability'], 'string'],
             [['pnc', 'oem', 'required', 'period', 'name', 'price'], 'string', 'max' => 255],
-            [['oem'], 'unique'],
+            //[['oem'], 'unique'],
         ];
     }
 
