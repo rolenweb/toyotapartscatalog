@@ -189,7 +189,7 @@ class ParserController extends BaseCommand
     		$this->error('Model title is null');
     		return;
     	}
-    	$model = Model::find()->where(['title' => trim($model_title)])->limit(1)->one();
+    	$model = ModelCar::find()->where(['title' => trim($model_title)])->limit(1)->one();
     	if (empty($model)) {
     		$this->error('Model is null');
     		return;
