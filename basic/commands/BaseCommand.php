@@ -90,11 +90,10 @@ DOC;
 		}
 	}
 
-	protected function readStdin()
+	/*protected function readStdin()
 	{
-		$line = null;
 		while ($line = fgets(STDIN)) {
 			yield $line;
 		}
-	}
+	}*/
 }
