@@ -38,7 +38,9 @@ class ParserController extends BaseCommand
     		$start = time();
     		$link = Link::findOne(['status' => Link::STATUS_WATING]);
 	        if (empty($link)) {
-	        	$url = 'http://toyota-usa.epc-data.com/tacoma/';
+	        	//$url = 'http://toyota-usa.epc-data.com/tacoma/';
+	        	$this->error('The link is null');
+	        	die;
 	        }else{
 	        	$url = $link->url;
 	        }
