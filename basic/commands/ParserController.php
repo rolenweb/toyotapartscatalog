@@ -34,6 +34,7 @@ class ParserController extends BaseCommand
      */
     public function actionIndex()
     {
+    	ini_set('memory_limit', '256M');
     	for (;;) { 
     		$start = time();
     		$link = Link::findOne(['status' => Link::STATUS_WATING]);
